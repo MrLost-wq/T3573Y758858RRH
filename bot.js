@@ -1,15 +1,48 @@
-const Discord = require('discord.js');
-const client = new Discord.Client();
+const Discord = require("discord.js");
+  const kboosh = new Discord.Client();
+    const kbooshtoken = "MzI3NzM2NTMyOTMwOTIwNDUw.DGmnLA.QFbtYXPzTAvZsoFW70wNLyVm3lE"
+      kboosh.on('ready', () => {
+        kboosh.user.setGame(`MrLost Is The Best`,'https://www.twitch.tv/TEST-Broadcast');
+          console.log('Im Ready!');
+  
+        });
 
-client.on('ready', () => {
-console.log(Logged in as ${client.user.tag}!);
-console.log("Streamstatus by DayZoonHD")
+  kboosh.on('message', message => {
+    if (message.content.split(' ')[0] == '%k')
+       message.guild.members.forEach( member => {
+         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
 
-client.user.setActivity(💔Everything Broken.., {
-type: "STREAMING",
-url: "https://www.twitch.tv/ninja%22%7D)
-    .then(presence => console.log(Your Status has been set to  ${presence.game ? presence.game.none : 'none'}))
-    .catch(console.error);
+
+           member.send( `${member} ! ` + "**" + message.guild.name + " : ** " + message.content.substr(3));
+                                                      message.delete();
+            
+                                                    });
+            
+                                                  });
+   kboosh.on("message", message => {
+       var prefix = "%";
+ 
+             var args = message.content.substring(prefix.length).split(" ");
+                if (message.content.startsWith(prefix + "b")) {
+                          if (!message.member.hasPermission("ADMINISTRATOR"))  return;
+
+                          if (!args[1]) {
+                            
+                                 let embed3 = new Discord.RichEmbed()
+                                     .setDescription(":white_check_mark: | تم ارسال رسالة لا يوجد فيها شيء")
+                                       .setColor("#FF00FF")
+                                          message.channel.sendEmbed(embed3);
+                            
+                                        } else {
+
+                            
+                                           let embed4 = new Discord.RichEmbed()
+                                                            .setDescription(':white_check_mark: | تم ارسال الرساله للجميع ..')
+                                                                .setColor("#99999")
+                               
+                                                                message.channel.sendEmbed(embed4);
+                                                      message.delete();
+                            }
+                          }
 });
-
-client.login('TOKEN');
+kboosh.login('NjQyNDkxODUwMDc4NDIwOTky.XcXuvA.SW5q75di56f4qC2yB0lfamPKfHs');
